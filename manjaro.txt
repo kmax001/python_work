@@ -1,0 +1,48 @@
+sudo  1更换中国源
+ sudo pacman-mirrors -i -c China -m rank
+sudo pacman -Syy
+修改/etc/pacman.conf
+[archlinuxcn]
+SigLevel = Optional TrustedOnly
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+sudo pacman -Syy && sudo pacman -S archlinuxcn-keyring
+//sudo pacman -S archlinuxcn-keyring #-S表示安装某一软件
+//sduo pacman -Syy # -Syy表示将本地的软件与软件仓库进行同步
+更新一下系统：
+sudo pacman -Syyu
+#这是Arch系非常爽的一个命令，可以更新系统的一切软件包
+sudo pacman -S wqy-microhei
+ 2安装常用软件
+输入法
+sudo pacman -S fcitx-im #全部安装
+sudo pacman -S fcitx-configtool
+在~/.xprofile文件（没有则需要新建）中加入：
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+Tim/QQ
+pacman -S deepin.com.qq.office
+sudo pacman -S gnome-settings-daemon
+系统设置->开机或关机->自动启动->添加脚本->输入/usr/lib/gsd-xsettings
+vim/网易云/wps/typora/chrome
+sudo pacman -S vim
+sudo pacman -S netease-cloud-music
+sudo pacman -S wps-office
+sudo pacman -S ttf-wps-fonts
+sudo pacman -S typora
+sudo pacman -S google-chrome
+sudo pacman -S yay#安装Aur工具
+yay -Ss sublime
+安装wps
+安装软件和缺失字体：
+sudo pacman -S wps-office
+sudo pacman -S ttf-wps-fonts
+#查看可用的语言包
+pacman -Ss wps|grep zh  
+#安装字体
+sudo pacman -S archlinuxcn/wps-office-mui-zh-cn
+右键底栏->面板的选项，改变高度和把它放在屏幕上方->添加部件全局顶栏
+application title
+sudo pacman -S latte-dock#安装dock栏
+chrome插件：
+首先将你那个crx扩展名的插件重命名为.tar.gz 然后再解压，在chrome插件页面选择已解压的扩展文件就可以了
